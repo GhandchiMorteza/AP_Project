@@ -5,8 +5,71 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Postal_Management_System"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+        Title="Postal Management System" Height="680" Width="1140" >
+        <Window.Resources>
+                <ControlTemplate x:Key="RoundedTextBoxTemplate" TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="4"
+                                BorderBrush="#0073aa">
+                                <ScrollViewer x:Name="PART_ContentHost" />
+                        </Border>
+                </ControlTemplate>
+                <Style x:Key="RoundedButtonStyle" TargetType="Button">
+                        <Setter Property="Background" Value="#0073aa" />
+                        <Setter Property="Foreground" Value="White" />
+                        <Setter Property="BorderBrush" Value="#0073aa" />
+                        <Setter Property="BorderThickness" Value="1" />
+                        <Setter Property="Padding" Value="20" />
+                        <Setter Property="FontSize" Value="16" />
+                        <Setter Property="FontFamily" Value="vazirmatn" />
+                        <Setter Property="Template">
+                                <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                                <Border Background="{TemplateBinding Background}"
+                                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                                        CornerRadius="5"
+                                                        Padding="19, 10"
+                                                >
+                                                        <ContentPresenter HorizontalAlignment="Center"
+                                                                          VerticalAlignment="Center" />
+                                                </Border>
+                                        </ControlTemplate>
+                                </Setter.Value>
+                        </Setter>
+                </Style>
+        </Window.Resources>
+        <Grid Background="#0073aa">
+                <Grid.RowDefinitions>
+                        <RowDefinition Height="0.65*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="0.65*"/>
+                </Grid.RowDefinitions>
+                
+                <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.2*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="1.2*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Row="1" Grid.Column="1" Background="#181818" CornerRadius="5">
+                        <StackPanel>
+                                <TextBlock Foreground="White" HorizontalAlignment="Right" Margin="30,30, 30, 7" FontFamily="vazirmatn" FontSize="16"><Bold>نام کاربری</Bold></TextBlock>
+                                <TextBox Background="#282828" Margin="25,3, 25, 11" Height="30" Template="{StaticResource RoundedTextBoxTemplate}"></TextBox>
+                                <TextBlock Foreground="White" HorizontalAlignment="Right" Margin="30,11, 30, 7" FontFamily="vazirmatn" FontSize="16"><Bold>رمز عبور</Bold></TextBlock>
+                                <TextBox Background="#282828" Margin="25,3, 25, 7" Height="30" Template="{StaticResource RoundedTextBoxTemplate}"></TextBox>
+                                <DockPanel Margin="30, 13, 30, 5">
+                                        <DockPanel DockPanel.Dock="Right">
+                                                <Button Margin="1,1" Style="{StaticResource RoundedButtonStyle}" ><Bold>ورود</Bold></Button>
+                                        </DockPanel >
+                                        <DockPanel DockPanel.Dock="Left" HorizontalAlignment="Left">
+                                                <Button Margin="1,1" Style="{StaticResource RoundedButtonStyle}" ><Bold>ثبت نام</Bold></Button>
+                                        </DockPanel>
+                                </DockPanel>
+                                
+                        </StackPanel>
+                </Border>
+                
+        </Grid>
+        
 </Window>
