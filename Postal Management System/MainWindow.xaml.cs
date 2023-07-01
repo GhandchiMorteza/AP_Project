@@ -24,5 +24,15 @@ namespace Postal_Management_System
         {
             InitializeComponent();
         }
+
+        private void LoginBtn_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void RegisterEmployeeBtn_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

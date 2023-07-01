@@ -48,22 +48,22 @@
                 </Grid.RowDefinitions>
                 
                 <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1.2*"/>
+                        <ColumnDefinition Width="1.25*"/>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="1.2*"/>
+                        <ColumnDefinition Width="1.25*"/>
                 </Grid.ColumnDefinitions>
                 <Border Grid.Row="1" Grid.Column="1" Background="#181818" CornerRadius="5">
                         <StackPanel>
-                                <TextBlock Foreground="White" HorizontalAlignment="Right" Margin="30,30, 30, 7" FontFamily="vazirmatn" FontSize="16"><Bold>نام کاربری</Bold></TextBlock>
+                                <TextBlock Foreground="White" HorizontalAlignment="Right" Margin="30,30, 30, 7" FontFamily="vazirmatn" FontSize="17" FontWeight="Heavy">نام کاربری</TextBlock>
                                 <TextBox Background="#282828" Margin="25,3, 25, 11" Height="30" FlowDirection="RightToLeft" FontFamily="vazirmatn" FontSize="14" Foreground="LightGray" Template="{StaticResource RoundedTextBoxTemplate}"></TextBox>
-                                <TextBlock Foreground="White" HorizontalAlignment="Right" Margin="30,11, 30, 7" FontFamily="vazirmatn" FontSize="16"><Bold>رمز عبور</Bold></TextBlock>
+                                <TextBlock Foreground="White" HorizontalAlignment="Right" Margin="30,11, 30, 7" FontFamily="vazirmatn" FontSize="17" FontWeight="Heavy">رمز عبور</TextBlock>
                                 <TextBox Background="#282828" Margin="25,3, 25, 7" Height="30" FlowDirection="RightToLeft" FontFamily="vazirmatn" FontSize="14" Foreground="LightGray" Template="{StaticResource RoundedTextBoxTemplate}"></TextBox>
                                 <DockPanel Margin="30, 15, 30, 5">
                                         <DockPanel DockPanel.Dock="Right">
-                                                <Button Margin="1,1" Style="{StaticResource RoundedButtonStyle}" ><Bold>ورود</Bold></Button>
+                                                <Button Margin="1,1" Style="{StaticResource RoundedButtonStyle}" FontWeight="Heavy" Name="LoginBtn" Click="LoginBtn_OnClick">ورود</Button>
                                         </DockPanel >
                                         <DockPanel DockPanel.Dock="Left" HorizontalAlignment="Left">
-                                                <Button Margin="1,1" Style="{StaticResource RoundedButtonStyle}" ><Bold>ثبت نام</Bold></Button>
+                                                <Button Margin="1,1" Style="{StaticResource RoundedButtonStyle}" FontWeight="Heavy" Name="RegisterEmployeeBtn" Click="RegisterEmployeeBtn_OnClick">ثبت نام</Button>
                                         </DockPanel>
                                 </DockPanel>
                                 
