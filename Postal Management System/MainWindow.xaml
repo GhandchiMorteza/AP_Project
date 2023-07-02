@@ -6,15 +6,18 @@
         xmlns:local="clr-namespace:Postal_Management_System"
         mc:Ignorable="d"
         Title="Postal Management System" Height="680" Width="1140" >
+        
         <Window.Resources>
-                <ControlTemplate x:Key="RoundedTextBoxTemplate" TargetType="TextBox">
-                        <Border Background="{TemplateBinding Background}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="4"
-                                BorderBrush="#0073aa">
-                                <ScrollViewer x:Name="PART_ContentHost" />
-                        </Border>
-                </ControlTemplate>
+                
+                <Style TargetType="TextBlock">
+                        <Setter Property="Foreground" Value="White" />
+                        <Setter Property="HorizontalAlignment" Value="Right" />
+                        <Setter Property="FontFamily" Value="vazirmatn" />
+                        <Setter Property="FontSize" Value="17" />
+                        <Setter Property="FontWeight" Value="Heavy" />
+                </Style>
+                
+                
                 <Style x:Key="RoundedButtonStyle" TargetType="Button">
                         <Setter Property="Background" Value="#0073aa" />
                         <Setter Property="Foreground" Value="White" />
@@ -23,6 +26,7 @@
                         <Setter Property="Padding" Value="20" />
                         <Setter Property="FontSize" Value="16" />
                         <Setter Property="FontFamily" Value="vazirmatn" />
+                        <Setter  Property="FontWeight" Value="Heavy" />
                         <Setter Property="Template">
                                 <Setter.Value>
                                         <ControlTemplate TargetType="Button">
@@ -39,8 +43,33 @@
                                 </Setter.Value>
                         </Setter>
                 </Style>
+                
+                
+                <ControlTemplate x:Key="RoundedTextBoxTemplate" TargetType="TextBox">
+                        <Grid>
+                                <Border x:Name="border"
+                                        Background="{TemplateBinding Background}"
+                                        BorderThickness="2"
+                                        CornerRadius="4"
+                                        BorderBrush="DarkSlateGray">
+                                        <ScrollViewer x:Name="PART_ContentHost" />
+                                </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                                <Trigger Property="IsKeyboardFocused" Value="True">
+                                        <Setter TargetName="border" Property="BorderBrush" Value="#0073aa" />
+                                </Trigger>
+                        </ControlTemplate.Triggers>
+                </ControlTemplate>
+
+                
+                
         </Window.Resources>
+        
+        
+        
         <Grid Background="#0073aa">
+                
                 <Grid.RowDefinitions>
                         <RowDefinition Height="0.75*"/>
                         <RowDefinition Height="*"/>
@@ -52,24 +81,28 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="1.25*"/>
                 </Grid.ColumnDefinitions>
+                
+                
                 <Border Grid.Row="1" Grid.Column="1" Background="#181818" CornerRadius="5">
                         <StackPanel>
-                                <TextBlock Foreground="White" HorizontalAlignment="Right" Margin="30,27, 30, 7" FontFamily="vazirmatn" FontSize="17" FontWeight="Heavy">نام کاربری</TextBlock>
-                                <TextBox VerticalContentAlignment="Center" Padding="10,2" Background="#282828" Margin="25,3, 25, 11" Height="30"  FontFamily="vazirmatn" FontSize="14" Foreground="LightGray" Template="{StaticResource RoundedTextBoxTemplate}"></TextBox>
-                                <TextBlock Foreground="White" HorizontalAlignment="Right" Margin="30,11, 30, 7" FontFamily="vazirmatn" FontSize="17" FontWeight="Heavy">رمز عبور</TextBlock>
-                                <TextBox VerticalContentAlignment="Center" Padding="10,2" Background="#282828" Margin="25,3, 25, 7" Height="30" FontFamily="vazirmatn" FontSize="14" Foreground="LightGray" Template="{StaticResource RoundedTextBoxTemplate}"></TextBox>
+                                <TextBlock Margin="30,27, 30, 7">نام کاربری</TextBlock>
+                                <TextBox VerticalContentAlignment="Center" Padding="10,2" Background="#282828" Margin="25,3, 25, 11" Height="30" FontSize="15" Foreground="White" Template="{StaticResource RoundedTextBoxTemplate}"></TextBox>
+                                <TextBlock Margin="30,11, 30, 7">رمز عبور</TextBlock>
+                                <TextBox VerticalContentAlignment="Center" Padding="10,2" Background="#282828" Margin="25,3, 25, 7" Height="30" FontSize="15" Foreground="White" Template="{StaticResource RoundedTextBoxTemplate}"></TextBox>
                                 <DockPanel Margin="30, 15, 30, 5">
                                         <DockPanel DockPanel.Dock="Right">
-                                                <Button Margin="1,1" Style="{StaticResource RoundedButtonStyle}" FontWeight="Heavy" Name="LoginBtn" Click="LoginBtn_OnClick">ورود</Button>
+                                                <Button Margin="1,1" Style="{StaticResource RoundedButtonStyle}"  Name="LoginBtn" Click="LoginBtn_OnClick">ورود</Button>
                                         </DockPanel >
                                         <DockPanel DockPanel.Dock="Left" HorizontalAlignment="Left">
-                                                <Button Margin="1,1" Style="{StaticResource RoundedButtonStyle}" FontWeight="Heavy" Name="RegisterEmployeeBtn" Click="RegisterEmployeeBtn_OnClick">ثبت نام</Button>
+                                                <Button Margin="1,1" Style="{StaticResource RoundedButtonStyle}"  Name="RegisterEmployeeBtn" Click="RegisterEmployeeBtn_OnClick">ثبت نام</Button>
                                         </DockPanel>
                                 </DockPanel>
                                 
                         </StackPanel>
                 </Border>
-                <TextBlock Grid.Column="1" Grid.Row="0" TextAlignment="Center" VerticalAlignment="Center" FontFamily="vazirmatn" FontWeight="Heavy" FontSize="47" Foreground="White">سامانه پست</TextBlock>
+                
+                <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="47" >سامانه پست</TextBlock>
+                
         </Grid>
         
 </Window>
