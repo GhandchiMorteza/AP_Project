@@ -25,16 +25,7 @@ namespace Postal_Management_System
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void LoginBtn_OnClick(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void RegisterEmployeeBtn_OnClick(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
+            MainFrame.Navigate(new Uri("/Pages/StartLoginPage.xaml", UriKind.Relative));
         }
     }
 }
