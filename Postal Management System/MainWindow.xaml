@@ -42,9 +42,9 @@
         </Window.Resources>
         <Grid Background="#0073aa">
                 <Grid.RowDefinitions>
-                        <RowDefinition Height="0.65*"/>
+                        <RowDefinition Height="0.75*"/>
                         <RowDefinition Height="*"/>
-                        <RowDefinition Height="0.65*"/>
+                        <RowDefinition Height="0.60*"/>
                 </Grid.RowDefinitions>
                 
                 <Grid.ColumnDefinitions>
@@ -54,7 +54,7 @@
                 </Grid.ColumnDefinitions>
                 <Border Grid.Row="1" Grid.Column="1" Background="#181818" CornerRadius="5">
                         <StackPanel>
-                                <TextBlock Foreground="White" HorizontalAlignment="Right" Margin="30,30, 30, 7" FontFamily="vazirmatn" FontSize="17" FontWeight="Heavy">نام کاربری</TextBlock>
+                                <TextBlock Foreground="White" HorizontalAlignment="Right" Margin="30,27, 30, 7" FontFamily="vazirmatn" FontSize="17" FontWeight="Heavy">نام کاربری</TextBlock>
                                 <TextBox VerticalContentAlignment="Center" Padding="10,2" Background="#282828" Margin="25,3, 25, 11" Height="30"  FontFamily="vazirmatn" FontSize="14" Foreground="LightGray" Template="{StaticResource RoundedTextBoxTemplate}"></TextBox>
                                 <TextBlock Foreground="White" HorizontalAlignment="Right" Margin="30,11, 30, 7" FontFamily="vazirmatn" FontSize="17" FontWeight="Heavy">رمز عبور</TextBlock>
                                 <TextBox VerticalContentAlignment="Center" Padding="10,2" Background="#282828" Margin="25,3, 25, 7" Height="30" FontFamily="vazirmatn" FontSize="14" Foreground="LightGray" Template="{StaticResource RoundedTextBoxTemplate}"></TextBox>
@@ -69,7 +69,7 @@
                                 
                         </StackPanel>
                 </Border>
-                
+                <TextBlock Grid.Column="1" Grid.Row="0" TextAlignment="Center" VerticalAlignment="Center" FontFamily="vazirmatn" FontWeight="Heavy" FontSize="47" Foreground="White">سامانه پست</TextBlock>
         </Grid>
         
 </Window>
