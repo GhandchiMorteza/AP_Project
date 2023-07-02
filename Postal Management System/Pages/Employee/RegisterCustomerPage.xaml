@@ -1,0 +1,14 @@
+﻿<Page x:Class="Postal_Management_System.Pages.Employee.RegisterCustomerPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Postal_Management_System.Pages.Employee"
+      mc:Ignorable="d"
+      Title="Postal Management System" Height="auto" Width="auto">
+    <Grid Background="Chartreuse">
+        <Border Margin="20" Background="Chocolate">
+            <TextBlock Foreground="Black">register customer page</TextBlock>
+        </Border>
+    </Grid>
+</Page>

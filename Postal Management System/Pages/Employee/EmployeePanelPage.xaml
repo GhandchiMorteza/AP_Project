@@ -5,8 +5,21 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Postal_Management_System.Pages.Employee"
       mc:Ignorable="d"
-      Title="Postal Management System" Height="680" Width="1140">
+      Title="Postal Management System" Height="auto" Width="auto">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.33*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
         
+        <Border Grid.Column="0" Background="Blue">
+            <StackPanel VerticalAlignment="Center">
+                <Button Name="RegisterCustomerBtn" Click="RegisterCustomerBtn_OnClick">salam1</Button>
+                <Button>salam2</Button>
+                <Button>salam3</Button>
+                <Button>salam4</Button>
+            </StackPanel>
+        </Border>
+        <Frame x:Name="EmployeePanelFrame" Grid.Column="1"></Frame>
     </Grid>
 </Page>
