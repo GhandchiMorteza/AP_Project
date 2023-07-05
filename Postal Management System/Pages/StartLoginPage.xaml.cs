@@ -13,7 +13,7 @@ public partial class StartLoginPage : Page
 
     private void LoginBtn_OnClick(object sender, RoutedEventArgs e)
     {
-        NavigationService?.Navigate(new Uri("/Pages/Employee/EmployeePanelPage.xaml", UriKind.Relative));
+        NavigationService?.Navigate(new Uri("/Pages/Customer/CustomerPanelPage.xaml", UriKind.Relative));
     }
 
     private void RegisterEmployeeBtn_OnClick(object sender, RoutedEventArgs e)

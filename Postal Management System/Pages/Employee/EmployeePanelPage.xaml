@@ -6,18 +6,37 @@
       xmlns:local="clr-namespace:Postal_Management_System.Pages.Employee"
       mc:Ignorable="d"
       Title="Postal Management System" Height="auto" Width="auto">
-    <Grid>
+    <Grid Background="DarkSlateGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.33*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        
-        <Border Grid.Column="0" Background="Blue">
+
+        <Border Grid.Column="0" Background="#282828">
             <StackPanel VerticalAlignment="Center">
-                <Button Name="RegisterCustomerBtn" Click="RegisterCustomerBtn_OnClick">salam1</Button>
-                <Button>salam2</Button>
-                <Button>salam3</Button>
-                <Button>salam4</Button>
+                <ListBox x:Name="MenuListBox"
+                         Background="#282828" BorderThickness="0">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem" BasedOn="{StaticResource ListBoxItemStyle}">
+                            <EventSetter Event="PreviewMouseLeftButtonUp" Handler="MenuListBoxItem_Click" />
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                    <ListBoxItem>
+                        <TextBlock Text="ثبت نام مشتری" />
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <TextBlock Text="ثبت سفارش" />
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <TextBlock Text="گزارش گیری از سفارشات" />
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <TextBlock Text="نمایش اطلاعات بسته" />
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <TextBlock Text=" ایمیل تحویل شدن بسته" />
+                    </ListBoxItem>
+                </ListBox>
             </StackPanel>
         </Border>
         <Frame x:Name="EmployeePanelFrame" Grid.Column="1"></Frame>

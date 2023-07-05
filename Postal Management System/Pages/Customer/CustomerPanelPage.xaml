@@ -1,0 +1,41 @@
+﻿<Page x:Class="Postal_Management_System.Pages.Customer.CustomerPanelPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Postal_Management_System.Pages.Customer"
+      mc:Ignorable="d"
+      Title="Postal Management System" Height="auto" Width="auto">
+      <Grid Background="DarkSlateGray">
+            <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="0.33*" />
+                  <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+        
+            <Border Grid.Column="0" Background="#282828">
+                  <StackPanel VerticalAlignment="Center">
+                        <ListBox x:Name="MenuListBox"
+                                 Background="#282828" BorderThickness="0">
+                              <ListBox.ItemContainerStyle>
+                                    <Style TargetType="ListBoxItem" BasedOn="{StaticResource ListBoxItemStyle}">
+                                          <EventSetter Event="PreviewMouseLeftButtonUp" Handler="MenuListBoxItem_Click"/>
+                                    </Style>
+                              </ListBox.ItemContainerStyle>
+                              <ListBoxItem>
+                                    <TextBlock Text="گزارش گیری از سفارشات"/>
+                              </ListBoxItem>
+                              <ListBoxItem>
+                                    <TextBlock Text="نمایش اطلاعات بسته"/>
+                              </ListBoxItem>
+                              <ListBoxItem>
+                                    <TextBlock Text="کیف پول"/>
+                              </ListBoxItem>
+                              <ListBoxItem>
+                                    <TextBlock Text="تغییر نام کاربری و رمز عبور"/>
+                              </ListBoxItem>
+                        </ListBox>
+                  </StackPanel>
+            </Border>
+            <Frame x:Name="CustomerPanelFrame" Grid.Column="1"></Frame>
+      </Grid>
+</Page>
