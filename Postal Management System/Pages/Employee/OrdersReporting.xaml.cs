@@ -8,7 +8,6 @@ namespace Postal_Management_System.Pages.Employee;
 
 public partial class OrdersReporting : Page
 {
-    public PackageDataAccess packageDataAccess = new PackageDataAccess();
     public ObservableCollection<Package> Packages = new ObservableCollection<Package>();
     public Package CurrentEmployee { get; set; } = new Package();
     
@@ -21,6 +20,6 @@ public partial class OrdersReporting : Page
 
     private void fillData()
     {
-        Packages = packageDataAccess.Packages;
+        Packages = PackageDataAccess.Packages;
     }
 }

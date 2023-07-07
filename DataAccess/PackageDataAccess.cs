@@ -3,64 +3,78 @@ using DataAccess.Models;
 
 namespace DataAccess;
 
-public class PackageDataAccess
+public static class PackageDataAccess
 {
-    public ObservableCollection<Package> Packages { get; set; } = new ObservableCollection<Package>();
+    public static ObservableCollection<Package> Packages { get; set; } = new();
+    public static Employee CurrentPackage = new();
+    private static string Path = @"./DBPackages.csv";
 
-    public PackageDataAccess()
+    static PackageDataAccess()
     {
         ReadPackages();
     }
 
-    private void ReadPackages()
+    private static void ReadPackages()
     {
-        var package1 = new Package()
+        using var reader = new StreamReader(Path);
+        Packages.Clear();
+        while (!reader.EndOfStream)
         {
-            Id = 1,
-            SenderAddress = "Felanja",
-            ReceiverAddress = "Oonja",
-            packageType = Package.PackageType.Fragile,
-            ContainExpensive = false,
-            postType = Package.PostType.Normal,
-            PhoneNo = "09128564523",
-            Price = 2500
-        };
-        
-        var package2 = new Package()
-        {
-            Id = 2,
-            SenderAddress = "doorja",
-            ReceiverAddress = "nazdicja",
-            packageType = Package.PackageType.Object,
-            ContainExpensive = true,
-            postType = Package.PostType.Express,
-            PhoneNo = "09127254523",
-            Price = 10000
-        };
-        
-        Packages.Add(package1);
-        Packages.Add(package2);
+            var line = reader.ReadLine();
+            var values = line.Split(",");
+            var package = new Package
+            {
+                Id = Convert.ToInt32(values[0]),
+                SenderAddress = values[1],
+                ReceiverAddress = values[2],
+                packageType =  (Package.PackageType)Enum.Parse(typeof(Package.PackageType), values[3]),
+                ContainExpensive = Convert.ToBoolean(values[4]),
+                postType = (Package.PostType) Enum.Parse(typeof(Package.PostType), values[5]),
+                PhoneNo = values[6],
+                Price = Convert.ToDouble(values[7])
+            };
+            Packages.Add(package);
+        }
     }
 
-    private void AddPackage(Package package)
+    private static void SavePackages()
+    {
+        using var writer = new StreamWriter(Path);
+        foreach (var package in Packages)
+        {
+            var Id = package.Id;
+            var SenderAddress = package.SenderAddress;
+            var ReceiverAddress = package.ReceiverAddress;
+            var packageType = package.packageType;
+            var ContainExpensive = package.ContainExpensive;
+            var postType = package.postType;
+            var PhoneNo = package.PhoneNo;
+            var Price = package.Price;
+        }
+    }
+
+    public static void AddPackage(Package package)
     {
         Packages.Add(package);
+        SavePackages();
     }
 
-    public void RemovePackage(int id)
+    public static void RemovePackage(int id)
     {
         var temp = Packages.First(x => x.Id == id);
         Packages.Remove(temp);
+        SavePackages();
     }
 
-    public void EditPackage(Package package)
+    public static void EditPackage(Package package)
     {
         var temp = Packages.First(x => x.Id == package.Id);
         var index = Packages.IndexOf(temp);
         Packages[index] = package;
+        SavePackages();
     }
 
-    public int GetNextId()
+    public static int GetNextId()
     {
         var index = Packages.Any() ? Packages.Max(x => x.Id) + 1 : 1;
         return index;

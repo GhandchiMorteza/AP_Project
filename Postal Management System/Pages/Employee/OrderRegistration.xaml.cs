@@ -31,5 +31,9 @@ public partial class OrderRegistration : Page
             
             NavigationService?.Navigate(new Uri("/Pages/Employee/RegisterCustomerPage.xaml", UriKind.Relative));
         }
+        else
+        {
+            NavigationService?.Navigate(new Uri("/Pages/Employee/OrderDetail.xaml", UriKind.Relative));
+        }
     }
 }

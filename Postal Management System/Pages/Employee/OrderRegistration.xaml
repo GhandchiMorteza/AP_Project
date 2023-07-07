@@ -9,9 +9,9 @@
     <Grid Background="DarkSlateGray">
         
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.2*" />
+            <RowDefinition Height="0.8*" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="0.2*" />
+            <RowDefinition Height="0.8*" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -21,8 +21,8 @@
         </Grid.ColumnDefinitions>
         
         <Border Grid.Row="1" Grid.Column="1" Background="#181818" CornerRadius="5">
-            <StackPanel VerticalAlignment="Center">
-                
+            <StackPanel VerticalAlignment="Center" >
+                <TextBlock HorizontalAlignment="Center" Margin="0,0,0,20" FontSize="20">ثبت سفارش</TextBlock>
                 <TextBlock Margin="30,10, 30, 0">کد ملی مشتری</TextBlock>
                 <TextBox x:Name="NationalCode" VerticalContentAlignment="Center" Padding="10,2" Background="#282828" Margin="25,3, 25, 11"
                          Height="30" FontSize="15" Foreground="White"
