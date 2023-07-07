@@ -1,63 +1,84 @@
-﻿using DataAccess.Models;
+﻿using System.Collections.ObjectModel;
+using DataAccess.Models;
 
 namespace DataAccess;
 
-public class EmployeeDataAccess
+public static class EmployeeDataAccess
 {
-    public List<Employee> Employees { get; set; } = new List<Employee>();
+    public static ObservableCollection<Employee> Employees { get; set; } = new();
+    public static Employee CurrentEmployee = new();
+    private static string Path = @"./DBEmployees.csv";
 
-    public EmployeeDataAccess()
+
+    static EmployeeDataAccess()
     {
         ReadEmployees();
     }
 
-    private void ReadEmployees()
+    private static void ReadEmployees()
     {
-        var emp1 = new Employee()
+        using var reader = new StreamReader(Path);
+        Employees.Clear();
+        while (!reader.EndOfStream)
         {
-            id = 1,
-            name = "علی",
-            lastName = "حسینی",
-            password = "sdfj1523",
-            personalIdNo = "40044",
-            userName = "jdsfkj"
-        };
-        
-        var emp2 = new Employee()
-        {
-            id = 2,
-            name = "غلامی",
-            lastName = "فاطمی",
-            password = "kjfj1541",
-            personalIdNo = "40172",
-            userName = "werew"
-        };
-        
-        Employees.Add(emp1);
-        Employees.Add(emp2);
+            var line = reader.ReadLine();
+            var values = line.Split(",");
+
+            var emp = new Employee
+            {
+                Id = Convert.ToInt32(values[0]),
+                Name = values[1],
+                LastName = values[2],
+                UserName = values[3],
+                Password = values[4],
+                personalIdNo = values[5],
+                Email = values[6]
+            };
+            Employees.Add(emp);
+        }
     }
 
-    private void AddEmployee(Employee employee)
+    private static void SaveEmployees()
+    {
+        using var writer = new StreamWriter(Path);
+        foreach (var employee in Employees)
+        {
+            var id = employee.Id.ToString();
+            var name = employee.Name;
+            var lastName = employee.LastName;
+            var userName = employee.UserName;
+            var password = employee.Password;
+            var personalIdNo = employee.personalIdNo;
+            var email = employee.Email;
+            var line = string.Join(",", id, name, lastName, userName, password, personalIdNo, email);
+            writer.WriteLine(line);
+        }
+    }
+
+    public static void AddEmployee(Employee employee)
     {
         Employees.Add(employee);
+        SaveEmployees();
     }
 
-    public void RemoveEmployee(int id)
+    public static void RemoveEmployee(int id)
     {
-        var temp = Employees.First(x => x.id == id);
+        var temp = Employees.First(x => x.Id == id);
         Employees.Remove(temp);
+        SaveEmployees();
     }
 
-    public void EditEmployee(Employee employee)
+    public static void EditEmployee(Employee employee)
     {
-        var temp = Employees.First(x => x.id == employee.id);
+        var temp = Employees.First(x => x.Id == employee.Id);
         var index = Employees.IndexOf(temp);
         Employees[index] = employee;
+        SaveEmployees();
     }
 
-    public int GetNextId()
+    public static int GetNextId()
     {
-        var index = Employees.Any() ? Employees.Max(x => x.id) + 1 : 1;
+        var index = Employees.Any() ? Employees.Max(x => x.Id) + 1 : 1;
         return index;
     }
 }

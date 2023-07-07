@@ -7,6 +7,12 @@
       mc:Ignorable="d"
       Title="OrdersReporting" Height="450" Width="800">
     <Grid>
-        
+        <StackPanel>
+            <DataGrid Margin="5" Name="PackagesGrid" ColumnWidth="*" CanUserAddRows="False" MinWidth="100" CanUserResizeColumns="True" Foreground="Black">
+                <DataGrid.ColumnHeaderStyle>
+                    <StaticResource ResourceKey="DataGridColumnHeaderStyle" />
+                </DataGrid.ColumnHeaderStyle>
+            </DataGrid>
+        </StackPanel>
     </Grid>
 </Page>

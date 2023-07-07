@@ -2,23 +2,23 @@
 
 public class Customer: IUser
 {
-    public int id { get; set; }
-    public string name { get; set; }
-    public string lastName { get; set; }
-    public string userName { get; set; }
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string LastName { get; set; }
+    public string UserName { get; set; }
     public string nationalCode { get; set; }
-    public string email { get; set; }
-    public string phoneNo { get; set; }
-    public string password { get; set; }
+    public string Email { get; set; }
+    public string PhoneNo { get; set; }
+    public string Password { get; set; }
     
     public string GetBasicInfo()
     {
-        var finalStr = name + ' ' + lastName + 
-                       "\nUsername: " + userName +
+        var finalStr = Name + ' ' + LastName + 
+                       "\nUsername: " + UserName +
                        "\nNational Code: " + nationalCode +
-                       "\nEmail: " + email +
-                       "\nPhone Number: " + phoneNo +
-                       "\nPassword: " + password;
+                       "\nEmail: " + Email +
+                       "\nPhone Number: " + PhoneNo +
+                       "\nPassword: " + Password;
         return finalStr;
     }
 }

@@ -2,11 +2,11 @@
 
 public interface IUser
 {
-    int id { get; set; }
-    string name { get; set; }
-    string lastName { get; set; }
-    string userName { get; set; }
-    string password { get; set; }
+    int Id { get; set; }
+    string Name { get; set; }
+    string LastName { get; set; }
+    string UserName { get; set; }
+    string Password { get; set; }
 
     string GetBasicInfo();
 }

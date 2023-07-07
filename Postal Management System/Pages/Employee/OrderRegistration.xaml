@@ -5,8 +5,40 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Postal_Management_System.Pages.Employee"
       mc:Ignorable="d"
-      Title="OrderRegistration" Height="450" Width="800">
-    <Grid>
+      Title="OrderRegistration" Height="680" Width="752.4">
+    <Grid Background="DarkSlateGray">
         
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="0.2*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.7*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="0.7*" />
+        </Grid.ColumnDefinitions>
+        
+        <Border Grid.Row="1" Grid.Column="1" Background="#181818" CornerRadius="5">
+            <StackPanel VerticalAlignment="Center">
+                
+                <TextBlock Margin="30,10, 30, 0">کد ملی مشتری</TextBlock>
+                <TextBox x:Name="NationalCode" VerticalContentAlignment="Center" Padding="10,2" Background="#282828" Margin="25,3, 25, 11"
+                         Height="30" FontSize="15" Foreground="White"
+                         Template="{StaticResource RoundedTextBoxTemplate}">
+                </TextBox>
+
+                <DockPanel Margin="30, 15, 30, 5">
+                    <DockPanel DockPanel.Dock="Right">
+                        <Button Margin="1,1" Style="{StaticResource RoundedButtonStyle}" Name="NationalCodeBtn"
+                                Click="NationalCodeBtn_OnClick">
+                            ثبت
+                        </Button>
+                    </DockPanel>
+                </DockPanel>
+
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>
